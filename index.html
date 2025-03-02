@@ -3,25 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магазин</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ТВОЙ ЗАПАХ – Мультиссылка</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #004d40, #26a69a);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+        h1 {
+            font-size: 28px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        p {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 18px;
+            border-radius: 10px;
+            transition: 0.3s;
+            font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .social-icons a:hover {
+            color: #ffeb3b;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Фон -->
-    <div class="background"></div>
+    <div class="container">
+        <h1>ТВОЙ ЗАПАХ</h1>
+        <p>Разливная парфюмерия премиум-класса</p>
 
-    <!-- Кнопка переключения темы -->
-    <button class="theme-toggle">🌙 Темная тема</button>
+        <a href="https://yourcatalog.com" class="btn">Каталог ароматов</a>
+        <a href="https://youroffers.com" class="btn">Акции и скидки</a>
+        <a href="https://wa.me/yourwhatsapp" class="btn">WhatsApp</a>
+        <a href="https://t.me/yourtelegram" class="btn">Telegram</a>
+        <a href="https://instagram.com/yourinstagram" class="btn">Instagram</a>
 
-    <!-- Кнопки -->
-    <div class="button-container">
-        <a href="#" class="btn"><span>Перейти в каталог</span></a>
-        <a href="#" class="btn"><span>Связаться с нами</span></a>
-        <a href="#" class="btn"><span>Узнать о скидках</span></a>
-        <a href="#" class="btn"><span>Акции и предложения</span></a>
+        <div class="social-icons">
+            <a href="https://wa.me/yourwhatsapp">📞</a>
+            <a href="https://t.me/yourtelegram">✉</a>
+            <a href="https://instagram.com/yourinstagram">📷</a>
+        </div>
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
