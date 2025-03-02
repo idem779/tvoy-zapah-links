@@ -5,79 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ТВОЙ ЗАПАХ – Мультиссылка</title>
     <style>
+        /* Подключаем современный шрифт через Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
         body {
-            background: linear-gradient(135deg, #004d40, #26a69a);
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: url('https://raw.githubusercontent.com/ваше-имя/репозиторий/main/multilink/store-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
         .container {
             max-width: 400px;
-            margin: auto;
+            width: 90%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0; /* Начальное состояние для JavaScript-анимации */
         }
+
         h1 {
             font-size: 28px;
             text-transform: uppercase;
-            font-weight: bold;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            opacity: 0; /* Начальное состояние для JavaScript-анимации */
         }
+
         p {
             font-size: 16px;
             opacity: 0.8;
+            margin-bottom: 20px;
+            opacity: 0; /* Начальное состояние для JavaScript-анимации */
         }
+
         .btn {
             display: block;
             width: 100%;
-            background: rgba(255, 255, 255, 0.2);
+            background: linear-gradient(45deg, #808080, #999999);
             color: white;
             text-decoration: none;
             padding: 15px;
             margin: 10px 0;
             font-size: 18px;
             border-radius: 10px;
-            transition: 0.3s;
-            font-weight: bold;
+            border: none;
+            font-weight: 600;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, background 0.3s, opacity 0.5s;
+            opacity: 0; /* Начальное состояние для JavaScript-анимации */
         }
+
         .btn:hover {
-            background: rgba(255, 255, 255, 0.4);
+            background: linear-gradient(45deg, #999999, #808080);
             transform: scale(1.05);
         }
-        .social-icons {
-            margin-top: 20px;
-        }
-        .social-icons a {
-            display: inline-block;
-            margin: 0 10px;
-            font-size: 24px;
-            color: white;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .social-icons a:hover {
-            color: #ffeb3b;
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+                width: 85%;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .btn {
+                font-size: 16px;
+                padding: 12px;
+            }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>ТВОЙ ЗАПАХ</h1>
         <p>Разливная парфюмерия премиум-класса</p>
-
         <a href="https://yourcatalog.com" class="btn">Каталог ароматов</a>
         <a href="https://youroffers.com" class="btn">Акции и скидки</a>
         <a href="https://wa.me/yourwhatsapp" class="btn">WhatsApp</a>
         <a href="https://t.me/yourtelegram" class="btn">Telegram</a>
         <a href="https://instagram.com/yourinstagram" class="btn">Instagram</a>
-
-        <div class="social-icons">
-            <a href="https://wa.me/yourwhatsapp">📞</a>
-            <a href="https://t.me/yourtelegram">✉</a>
-            <a href="https://instagram.com/yourinstagram">📷</a>
-        </div>
     </div>
 
+    <script>
+        // Ждать загрузки DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            // Анимация появления контейнера
+            const container = document.querySelector('.container');
+            setTimeout(() => {
+                container.style.opacity = '1';
+                container.style.transition = 'opacity 1.5s ease-in-out';
+            }, 300);
+
+            // Анимация заголовка (скольжение сверху вниз)
+            const heading = document.querySelector('h1');
+            setTimeout(() => {
+                heading.style.opacity = '1';
+                heading.style.transform = 'translateY(0)';
+                heading.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+            }, 600);
+
+            // Анимация текста под заголовком
+            const paragraph = document.querySelector('p');
+            setTimeout(() => {
+                paragraph.style.opacity = '1';
+                paragraph.style.transition = 'opacity 1.5s ease-in-out';
+            }, 900);
+
+            // Анимация кнопок (появление с эффектом прыжка)
+            const buttons = document.querySelectorAll('.btn');
+            buttons.forEach((btn, index) => {
+                setTimeout(() => {
+                    btn.style.opacity = '1';
+                    btn.style.transform = 'scale(1)';
+                    btn.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+                    // Эффект прыжка
+                    btn.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        btn.style.transform = 'scale(1)';
+                    }, 200);
+                }, 1200 + (index * 200)); // Задержка для последовательного появления
+            });
+
+            // Дополнительная интерактивность: анимация при клике
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.1)';
+                    setTimeout(() => this.style.transform = 'scale(1)', 200);
+                });
+            });
+
+            // Анимация при наведении (дополнительный эффект)
+            buttons.forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0px 6px 12px rgba(0, 0, 0, 0.4)';
+                });
+                btn.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '0px 4px 8px rgba(0, 0, 0, 0.2)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
